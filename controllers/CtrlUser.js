@@ -24,6 +24,7 @@ module.exports = {
     },
     signup : async (req,res) =>{
 
+        
         const newUser =  new User(req.body); 
         const person = await newUser.save();
 

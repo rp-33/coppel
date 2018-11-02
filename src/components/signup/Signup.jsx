@@ -18,8 +18,8 @@ class Login extends Component{
         event.preventDefault();
         axios.post('/api/signup',this.state)
         .then(response=>{
-            localStorage.setItem('user', response.data);
-
+            localStorage.setItem('user',JSON.stringify(response.data));
+            this.props.history.push("/cms");
         })
         .catch(error=>{
             console.log(error)

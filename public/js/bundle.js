@@ -22359,9 +22359,12 @@ var Login = function (_Component) {
     _createClass(Login, [{
         key: 'handledSignup',
         value: function handledSignup(event) {
+            var _this2 = this;
+
             event.preventDefault();
             _axios2.default.post('/api/signup', this.state).then(function (response) {
-                localStorage.setItem('user', response.data);
+                localStorage.setItem('user', JSON.stringify(response.data));
+                _this2.props.history.push("/cms");
             }).catch(function (error) {
                 console.log(error);
             });
